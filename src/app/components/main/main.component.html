@@ -1,0 +1,19 @@
+<div class="container">
+     <br>
+     <h2 class="text-left">Product Management Section page</h2>
+    
+     <div class="row">
+
+         <div class="col-4">
+            <h4>Product Title</h4>
+            <app-product-list [products]="products" (selectedProducts)="selectedProducts($event)"></app-product-list>
+        </div>
+
+        
+        <div class="col-8">
+            <h4>Product Details Section</h4>
+            <app-product-details [product]="selectedProduct"></app-product-details>
+        </div>
+
+      </div>
+</div>
