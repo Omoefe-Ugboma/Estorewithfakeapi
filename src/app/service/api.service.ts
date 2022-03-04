@@ -7,9 +7,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class ApiService {
   
-  baseUrl = 'https://fakestoreapi.com/products';
+  baseUrl = 'http://localhost:3000/products/';
   
-  header = new HttpHeaders({
+  headers = new HttpHeaders({
     'Content-Type':'application/json'
   });
   
@@ -18,6 +18,16 @@ export class ApiService {
   ) { }
 
   getProducts(){
-  return this.httpCLient.get(this.baseUrl);
+  return this.httpCLient.get(this.baseUrl, {headers: this.headers});
   }
+
+  getProduct(id: number){
+    return this.httpCLient.get(`${this.baseUrl}${id}/`, {headers: this.headers});
+    }
+
+  rateProduct(rate: number, productId: number){
+    const body = JSON.stringify({stars: rate});
+    return this.httpCLient.post(`${this.baseUrl}${productId}/rate_product/`, body,{headers: this.headers});
+    }
+
 }

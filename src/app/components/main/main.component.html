@@ -4,15 +4,15 @@
     
      <div class="row">
 
-         <div class="col-4">
+         <div class="col-4 text-left">
             <h4>Product Title</h4>
             <app-product-list [products]="products" (selectedProducts)="selectedProducts($event)"></app-product-list>
         </div>
 
         
-        <div class="col-8">
+        <div class="col-8 text-right">
             <h4>Product Details Section</h4>
-            <app-product-details [product]="selectedProduct"></app-product-details>
+            <app-product-details [product]="selectedProduct" (updateProduct)="selectedProducts($event)"></app-product-details>
         </div>
 
       </div>
