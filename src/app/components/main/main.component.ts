@@ -10,6 +10,7 @@ export class MainComponent implements OnInit {
    
   products:  any = [];
   selectedProduct = null;
+  editedProduct = null;
   
   constructor(private apiService: ApiService) { }
  

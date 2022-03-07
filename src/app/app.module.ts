@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductFormComponent
   ],
   imports: [
   
