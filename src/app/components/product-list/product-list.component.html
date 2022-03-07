@@ -1,3 +1,10 @@
-<div *ngFor="let prolist of products" (click)="productClicked(prolist)">
-   <h5 class="badge badge-secondary">{{prolist.title}}</h5> 
+<button class="btn btn-outline-success btn-sm">New Button</button>
+<div *ngFor="let prolist of products" class="product-item">
+   <h5 (click)="productClicked(prolist)" >
+      {{prolist.title}}
+   </h5> 
+
+      <i class="fa fa-edit"></i>
+      <i class="fa fa-trash"></i>
+
 </div>
