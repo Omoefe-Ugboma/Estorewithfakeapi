@@ -29,5 +29,4 @@ export class ApiService {
     const body = JSON.stringify({stars: rate});
     return this.httpCLient.post(`${this.baseUrl}${productId}/rate_product/`, body,{headers: this.headers});
     }
-
 }

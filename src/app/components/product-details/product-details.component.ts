@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter} from '@angular/core';
 import { ApiService } from './../../service/api.service';
+import { Product } from './../../models/Product';
 
 @Component({
   selector: 'app-product-details',
@@ -22,7 +23,6 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     // console.log(changes.product.currentValue);
     // this.product = changes.product.currentValue;
-
   }
   rateHover(rate: number){
     this.rateHovered = rate;
