@@ -10,7 +10,10 @@ import { ApiService } from './../../service/api.service';
 export class ProductListComponent implements OnInit {
 
   @Input() products: any = [];
-  @Output() selectedProducts = new EventEmitter();
+  @Output() selectedProducts = new EventEmitter<any>();
+  @Output() editedProduct = new EventEmitter<any>();
+  @Output() createNewProduct = new EventEmitter<any>();
+  @Output() deletedProduct = new EventEmitter<any>();
 
   constructor() { }
 
@@ -22,5 +25,16 @@ export class ProductListComponent implements OnInit {
     this.selectedProducts.emit(product)
     // console.log(product)
   }
+  editProduct(prolist: any){
+   this.editedProduct.emit(prolist)
+  }
+
+  newProduct(){
+    this.createNewProduct.emit();
+   }
+
+   deleteProduct(prolist: any){
+    this.deletedProduct.emit(prolist);
+   }
 
 }
