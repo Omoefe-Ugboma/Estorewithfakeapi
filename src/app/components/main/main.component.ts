@@ -10,7 +10,7 @@ export class MainComponent implements OnInit {
    
   products:  any = [];
   selectedProduct = null;
-  editedProduct = null;
+  editedProduct: any = null;
   
   constructor(private apiService: ApiService) { }
  
@@ -25,6 +25,22 @@ export class MainComponent implements OnInit {
 
   selectedProducts(product: any){
     this.selectedProduct = product;
+    this.editedProduct = null;
+  }
+
+  editProduct(product: any){
+    this.editedProduct = product;
+    this.selectedProduct = null;
+  }
+
+  createNewProduct(){
+    this.editedProduct = {title:'',description:'',category:'',image:''};
+    this.selectedProduct = null;
+  }
+
+  deletedProduct(product: any){
+    // To removeproduct with API
+    console.log('delete', product.title);
   }
 
 }

@@ -6,7 +6,12 @@
 
          <div class="col-4 text-left">
             <!-- <h4>Product Title</h4> -->
-            <app-product-list [products]="products" (selectedProducts)="selectedProducts($event)"></app-product-list>
+            <app-product-list [products]="products" 
+            (selectedProducts)="selectedProducts($event)"
+            (editedProduct)="editProduct($event)"
+            (createNewProduct)="createNewProduct()"
+            (deletedProduct)="deletedProduct($event)">
+        </app-product-list>
         </div>
 
         
@@ -14,7 +19,7 @@
             <!-- <h4>Product Details Section</h4> -->
             <app-product-details [product]="selectedProduct" (updateProduct)="selectedProducts($event)"></app-product-details>
        
-            <app-product-form *ngIf="editedProduct"></app-product-form>
+            <app-product-form *ngIf="editedProduct" (product)="editedProduct"></app-product-form>
         </div>
         
       </div>
