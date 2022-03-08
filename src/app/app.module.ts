@@ -6,6 +6,7 @@ import { MainComponent } from './components/main/main.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { ProductFormComponent } from './components/product-form/product-form.com
   ],
   imports: [
   
-BrowserModule,
-HttpClientModule
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
