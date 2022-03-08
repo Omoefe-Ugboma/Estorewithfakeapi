@@ -35,6 +35,10 @@ export class ApiService {
       return this.httpCLient.put(`${this.baseUrl}${id}/`, body,{headers: this.headers});
     }
 
+    deleteProduct(id: any){
+      return this.httpCLient.delete(`${this.baseUrl}${id}/`,{headers: this.headers});
+    }
+
   rateProduct(rate: number, productId: number){
     const body = JSON.stringify({stars: rate});
     return this.httpCLient.post(`${this.baseUrl}${productId}/rate_product/`, body,{headers: this.headers});
