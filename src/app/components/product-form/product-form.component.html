@@ -1,1 +1,19 @@
-<p>product-form works!</p>
+<form [formGroup]="productForm" (submit)="saveForm()">
+    <label>Title</label><br>
+    <input type="text" formControlName="title"/><br>
+    
+    <label>Price</label><br>
+    <input type="text" formControlName="price"/><br> 
+    
+    <label>Category</label><br>
+    <input type="text" formControlName="category" /><br>
+    <select>
+        <option value="cat1">Select Category</option>
+        <option value="cat2">Women Clothes</option>
+        <option value="cat3">Men Shoes</option>
+    </select><br> 
+
+    <label>Description</label><br>
+    <textarea type="text" formControlName="description"></textarea><br>
+    <button type="submit">Save</button>
+</form>
