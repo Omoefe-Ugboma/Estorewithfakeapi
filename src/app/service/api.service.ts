@@ -25,10 +25,19 @@ export class ApiService {
     return this.httpCLient.get(`${this.baseUrl}${id}/`, {headers: this.headers});
     }
 
-    createProduct(title: any, price: any,description: any,category: any){
+  createProduct(title: any, price: any,description: any,category: any){
+    const body = JSON.stringify({title, price,description,category});
+    return this.httpCLient.post(`${this.baseUrl}`, body,{headers: this.headers});
+  }
+  
+    updateProduct(id:any, title: any, price: any,description: any,category: any){
       const body = JSON.stringify({title, price,description,category});
-      return this.httpCLient.post(`${this.baseUrl}`, body,{headers: this.headers});
-      }
+      return this.httpCLient.put(`${this.baseUrl}${id}/`, body,{headers: this.headers});
+    }
+
+    deleteProduct(id: any){
+      return this.httpCLient.delete(`${this.baseUrl}${id}/`,{headers: this.headers});
+    }
 
   rateProduct(rate: number, productId: number){
     const body = JSON.stringify({stars: rate});

@@ -40,7 +40,12 @@ export class MainComponent implements OnInit {
 
   deletedProduct(product: any){
     // To removeproduct with API
-    console.log('delete', product.title);
+    this.apiService.deleteProduct(product.id).subscribe(
+      data =>{
+        console.log(data);
+      },
+      error => console.log(error)
+    );
   }
 
 }
