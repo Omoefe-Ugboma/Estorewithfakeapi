@@ -37,6 +37,15 @@ export class ProductFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  formDisabled(){
+    if(this.productForm.value.title.length &&
+      this.productForm.value.description.length){
+        return false;
+    } else{
+      return true;
+    }
+  }
+
   saveForm(){
     // console.log(this.productForm.value);
     if(this.id){

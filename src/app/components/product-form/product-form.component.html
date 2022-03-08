@@ -1,21 +1,21 @@
 <form [formGroup]="productForm" (submit)="saveForm()">
     <label>Title</label><br>
-    <input type="text" formControlName="title"/><br>
+    <input type="text" class="form-control" formControlName="title"/><br>
     
     <label>Price</label><br>
-    <input type="text" formControlName="price"/><br> 
+    <input type="text" class="form-control" formControlName="price"/><br> 
     
     <label>Category</label><br>
-    <input type="text" formControlName="category" /><br>
-    <select>
+    <input type="text" class="form-control" formControlName="category" /><br>
+    <select class="form-control">
         <option value="cat1">Select Category</option>
         <option value="cat2">Women Clothes</option>
         <option value="cat3">Men Shoes</option>
     </select><br> 
 
     <label>Description</label><br>
-    <textarea type="text" formControlName="description"></textarea><br>
-    <button type="submit">
+    <textarea type="text" class="form-control" formControlName="description"></textarea><br>
+    <button class="btn btn-outline-success" class="form-control" type="submit" [disabled]="formDisabled()">
       <span *ngIf="id">Update</span>
       <span *ngIf="!id">Create</span>
     </button>
