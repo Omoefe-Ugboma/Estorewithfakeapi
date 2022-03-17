@@ -34,7 +34,7 @@ export class MainComponent implements OnInit {
   }
 
   createNewProduct(){
-    this.editedProduct = {title:'',description:'',category:'',image:''};
+    this.editedProduct = {title:'',description:'',category:'',price:''};
     this.selectedProduct = null;
   }
 
@@ -42,10 +42,24 @@ export class MainComponent implements OnInit {
     // To removeproduct with API
     this.apiService.deleteProduct(product.id).subscribe(
       data =>{
-        console.log(data);
+        this.products = this.products.filter((pro: { id: any; }) => pro.id !== product.id);
       },
       error => console.log(error)
     );
   }
+
+  productCreated(product: any){
+    this.products.push(product);
+    this.editedProduct= null;
+  } 
+
+  productUpdated(product: any){
+    const indx = this.products.findIndex((pro: { id: any; }) => pro.id === product.id);
+    if(indx >= 0){
+      this.products[indx] = product;
+    }
+    this.editedProduct = null;
+  } 
+
 
 }

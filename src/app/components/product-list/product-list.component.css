@@ -7,6 +7,6 @@
     margin: 15px 5px;
     cursor: pointer;
 }
-i[name='trash']{
+i.fa.fa-trash{
     color: crimson;
 }

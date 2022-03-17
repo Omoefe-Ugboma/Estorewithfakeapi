@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ApiService } from 'src/app/service/api.service';
 
@@ -11,6 +11,8 @@ export class ProductFormComponent implements OnInit {
    
   productForm:any;
   id = null;
+  @Output() productCreated = new EventEmitter<any>();
+  @Output() productUpdated = new EventEmitter<any>();
 
   @Input() set product(val: any){
     this.id = val.id;
@@ -35,6 +37,15 @@ export class ProductFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  formDisabled(){
+    if(this.productForm.value.title.length &&
+      this.productForm.value.description.length){
+        return false;
+    } else{
+      return true;
+    }
+  }
+
   saveForm(){
     // console.log(this.productForm.value);
     if(this.id){
@@ -43,7 +54,7 @@ export class ProductFormComponent implements OnInit {
         this.productForm.value.price,
         this.productForm.value.description, this.productForm.value.category
       ).subscribe(
-        result => console.log(result),
+        result => this.productUpdated.emit(result),
         error => console.log(error)
       );
     }else{
@@ -52,7 +63,7 @@ export class ProductFormComponent implements OnInit {
         this.productForm.value.price,
         this.productForm.value.description, this.productForm.value.category
       ).subscribe(
-        result => console.log(result),
+        result => this.productCreated.emit(result),
         error => console.log(error)
       );
     }
