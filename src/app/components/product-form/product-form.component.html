@@ -1,22 +1,32 @@
 <form [formGroup]="productForm" (submit)="saveForm()">
-    <label>Title</label><br>
-    <input type="text" class="form-control" formControlName="title"/><br>
+    <div class="form-group">
+      <label>Title</label><br>
+      <input type="text" class="form-control" formControlName="title"/>
+    </div>
     
-    <label>Price</label><br>
-    <input type="text" class="form-control" formControlName="price"/><br> 
+    <div class="form-group">
+      <label>Price</label><br>
+      <input type="text" class="form-control" formControlName="price"/>
+    </div>
     
-    <label>Category</label><br>
-    <input type="text" class="form-control" formControlName="category" /><br>
-    <select class="form-control">
+    <div class="form-group">
+      <label>Category</label>
+      <input type="text" class="form-control" formControlName="category" />
+    </div>
+    <!-- <select class="form-control">
         <option value="cat1">Select Category</option>
         <option value="cat2">Women Clothes</option>
         <option value="cat3">Men Shoes</option>
-    </select><br> 
+    </select>  -->
 
-    <label>Description</label><br>
-    <textarea type="text" class="form-control" formControlName="description"></textarea><br>
-    <button class="btn btn-outline-success" class="form-control" type="submit" [disabled]="formDisabled()">
-      <span *ngIf="id">Update</span>
-      <span *ngIf="!id">Create</span>
-    </button>
+    <div class="form-group">
+      <label>Description</label><br>
+      <textarea type="text" class="form-control" formControlName="description"></textarea>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-outline-success" class="form-control" type="submit" [disabled]="formDisabled()">
+        <span *ngIf="id">Update</span>
+        <span *ngIf="!id">Create</span>
+      </button>
+    </div>
 </form>
